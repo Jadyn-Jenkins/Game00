@@ -1,0 +1,56 @@
+
+File/Folder Architecture 
+Game/
+├── Assets/
+│   ├── Images/
+│   │   ├── Backgrounds/
+│   │   ├── Characters/
+│   │   ├── Enemies/
+│   │   ├── GUI/
+│   │   └── Misc/
+│   ├── Audio/
+│   │   ├── Music/
+│   │   ├── Sound Effects/
+│   │   └── Voices/
+│   ├── Fonts/
+│   └── Scripts/
+│       ├── Controllers/
+│       ├── Enemies/
+│       ├── GUI/
+│       ├── Player/
+│       └── Utils/
+├── Scenes/
+│   ├── Main.tscn
+│   ├── CharacterSelect.tscn
+│   ├── Gameplay.tscn
+│   ├── GameOver.tscn
+│   └── PauseMenu.tscn
+├── Settings/
+├── Project.godot
+└── ProjectName.csproj
+
+Gameplay Flowchart
+Start Game
+    │
+    ├── Character Select
+    │   ├── Select Character 1
+    │   ├── Select Character 2
+    │   ├── Select Character 3
+    │   └── Start Game
+    │
+    ├── Gameplay
+    │   ├── Spawn Player Characters
+    │   ├── Spawn Enemies
+    │   ├── Player Movement and Actions
+    │   ├── Enemy AI and Actions
+    │   ├── Player and Enemy Health
+    │   ├── Player and Enemy Hit Detection
+    │   ├── Pickup Items
+    │   ├── Boss Battles
+    │   ├── Level Transitions
+    │   └── Pause Menu
+    │
+    └── Game Over
+        ├── Display Score
+        ├── Restart Game
+        └── Return to Main Menu

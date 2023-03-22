@@ -1,0 +1,45 @@
+[Start Game]
+	Show Softwares and enivorments used.
+	Show Legal Stuff
+	Show Companies/Teams involved
+	
+	[Main Menu]
+		Click start -> shows options:
+		
+		[Story]
+			[Save Slot]
+				[Slot1]
+					[Character Select]
+						[Start Game]
+				[Slot2]
+					[Character Select]
+						[Start Game]
+				[Slot3]
+					[Character Select]
+						[Start Game]
+		[Stage Select]
+		[Arcade]
+		[Boss Rush]
+		[Survival]
+		[Training]
+		[Battle]
+		[Fighting Tips]
+		[Extras]
+		[Settings]
+		
+	[Gameplay]
+		[Spawn Player Characters]
+		[Spawn Enemies]
+		[Player Movement and Actions]
+		[Enemy AI and Actions]
+		[Player and Enemy Health]
+		[Player and Enemy Hit Detection]
+		[Pickup Items]
+		[Boss Battles]
+		[Level Transitions]
+		[Pause Menu]
+		
+	[Game Over]
+		[Display Score]
+		[Restart Game]
+		[Return to Main Menu]
