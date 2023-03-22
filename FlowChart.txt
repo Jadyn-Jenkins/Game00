@@ -1,43 +1,48 @@
 [Start Game]
-	Show Softwares and enivorments used.
-	Show Legal Stuff
-	Show Companies/Teams involved
-	
-	[Main Menu]
-		Click start -> shows options:
+├<Show Softwares and enivorments used.>
+├<Show Legal Stuff>
+├<Show Companies/Teams involved>
+└──	[Main Menu]
+	├<click start, shows options>
+	├──	[Story]
+	│	├<check for saved game>		
+	│	├──	[Slot1]
+	│	│	├<if no saved game>
+	│	│	│	├──	[Stage Select]
+	│	│	├<if saved game>
+	│	│	│	├──	[show area, game points, and starting location]
+	│	│	│	└──	[Character Select]
+	│	│	└──	[Start Game]
+	│	├──[Slot2]
+	│	│	└──[Same as Slot1 algorithm]
+	│	└──[Slot3]
+	│		└──[Same as Slot1 algorithm]	
+	│
+	├── [Stage Select]
+	│	├<check for furthest progress area>
+	│	└──[show area, and starting locations]
+	│		└──[Start Game]
+	│		
+	├── [Arcade] //Will be worked on 
+	├── [Boss Rush] //Will be worked on 
+	├── [Survival] //Will be worked on 
+	├── [Training] //Should function similar to our testing grounds for varying scenes 
+	├── [Battle] //Will be worked on 
+	├── [Fighting Tips] //Will be worked on 
+	├── [Extras] //Will be worked on 
+	└── [Settings] //Will be worked on 
 		
-		[Story]
-			[Save Slot]
-				[Slot1]
-					[Character Select]
-						[Start Game]
-				[Slot2]
-					[Character Select]
-						[Start Game]
-				[Slot3]
-					[Character Select]
-						[Start Game]
-		[Stage Select]
-		[Arcade]
-		[Boss Rush]
-		[Survival]
-		[Training]
-		[Battle]
-		[Fighting Tips]
-		[Extras]
-		[Settings]
-		
-	[Gameplay]
-		[Spawn Player Characters]
-		[Spawn Enemies]
-		[Player Movement and Actions]
-		[Enemy AI and Actions]
-		[Player and Enemy Health]
-		[Player and Enemy Hit Detection]
-		[Pickup Items]
-		[Boss Battles]
-		[Level Transitions]
-		[Pause Menu]
+[Gameplay]
+	[Spawn Player Characters]
+	[Spawn Enemies]
+	[Player Movement and Actions]
+	[Enemy AI and Actions]
+	[Player and Enemy Health]
+	[Player and Enemy Hit Detection]
+	[Pickup Items]
+	[Boss Battles]
+	[Level Transitions]
+	[Pause Menu]
 		
 	[Game Over]
 		[Display Score]
