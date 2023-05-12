@@ -1,6 +1,7 @@
 
 File/Folder Architecture 
 Game/
+├──	Addons/
 ├── Assets/
 │   ├── Images/
 │   │   ├── Backgrounds/
@@ -54,3 +55,9 @@ Start Game
         ├── Display Score
         ├── Restart Game
         └── Return to Main Menu
+
+
+GoDot
+	
+		Addons
+			
