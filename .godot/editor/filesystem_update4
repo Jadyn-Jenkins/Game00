@@ -1,0 +1,12 @@
+res://default_env.tres
+res://scenes/Level.tscn
+res://assets/scripts/player/player2.gd
+res://assets/scripts/player/playerdata.gd
+res://assets/scripts/menus/saveslot.gd
+res://scenes/menus/pausemenu.tscn
+res://scenes/menus/mainmenu.tscn
+res://scenes/menus/titlescreen.tscn
+res://scenes/menus/saveslots.tscn
+res://scenes/misc/player_data_handle.tscn
+res://scenes/levels/Level.tscn
+res://scenes/characters/Player.tscn

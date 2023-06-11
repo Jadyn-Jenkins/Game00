@@ -1,32 +1,113 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=11 format=3 uid="uid://6ls7hiilayh0"]
 
-[ext_resource path="res://assets/scripts/Titlescreen.gd" type="Script" id=1]
+[ext_resource type="FontFile" uid="uid://bi8w5lkscix65" path="res://assets/fonts/font.font" id="1"]
+[ext_resource type="Script" path="res://assets/scripts/menus/Titlescreen.gd" id="2"]
+[ext_resource type="Shader" path="res://assets/shaders/transition.gdshader" id="3"]
+[ext_resource type="Texture2D" uid="uid://bura83nswbe6y" path="res://assets/images/transition masks/circle.png" id="4"]
 
-[node name="Titlescreen" type="Node2D"]
-script = ExtResource( 1 )
+[sub_resource type="Animation" id="1"]
+resource_name = "any-button"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("press-start:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 384.0
-margin_bottom = 216.0
-color = Color( 0, 0, 0, 1 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1bysu"]
+_data = {
+"any-button": SubResource("1")
+}
 
-[node name="Label" type="Label" parent="."]
-margin_left = 122.0
-margin_top = 154.0
-margin_right = 247.0
-margin_bottom = 168.0
+[sub_resource type="FontFile" id="FontFile_jaigo"]
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="3"]
+shader = ExtResource("3")
+shader_parameter/cutoff = 0.329
+shader_parameter/mask = ExtResource("4")
+
+[sub_resource type="Animation" id="4"]
+resource_name = "transition"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_param/cutoff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vwa5b"]
+_data = {
+"transition": SubResource("4")
+}
+
+[node name="titlescreen" type="Node2D"]
+script = ExtResource("2")
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 384.0
+offset_bottom = 216.0
+color = Color(0.121569, 0.0117647, 0.290196, 1)
+
+[node name="press-start" type="Label" parent="."]
+offset_left = 122.0
+offset_top = 154.0
+offset_right = 247.0
+offset_bottom = 168.0
+theme_override_fonts/font = ExtResource("1")
 text = "- press any button -"
 
+[node name="button-flashing" type="AnimationPlayer" parent="press-start"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_1bysu")
+}
+
 [node name="Label2" type="Label" parent="."]
-margin_left = 58.0
-margin_top = 196.0
-margin_right = 322.0
-margin_bottom = 210.0
-text = "(C) triple skull games and studio jade 2023"
+offset_left = 31.0
+offset_top = 194.0
+offset_right = 363.0
+offset_bottom = 208.0
+theme_override_fonts/font = SubResource("FontFile_jaigo")
+text = "C triple skull games and studio jade 2023"
 
 [node name="Label3" type="Label" parent="."]
-margin_left = 123.0
-margin_top = 73.0
-margin_right = 247.0
-margin_bottom = 87.0
+offset_left = 123.0
+offset_top = 73.0
+offset_right = 247.0
+offset_bottom = 87.0
 text = "[insert game name]"
+
+[node name="transition" type="ColorRect" parent="."]
+material = SubResource("3")
+offset_right = 384.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="animation" type="AnimationPlayer" parent="transition"]
+libraries = {
+"": SubResource("AnimationLibrary_vwa5b")
+}

@@ -1,0 +1,172 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://addons/action_command/lib/command_manager.gd" type="Script" id=1]
+[ext_resource path="res://addons/action_command/lib/command_resource.gd" type="Script" id=2]
+[ext_resource path="res://addons/action_command/demo/arrow.png" type="Texture2D" id=3]
+[ext_resource path="res://addons/action_command/demo/button.png" type="Texture2D" id=4]
+[ext_resource path="res://addons/action_command/demo/check.png" type="Texture2D" id=5]
+[ext_resource path="res://addons/action_command/lib/key.gd" type="Script" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+var _action1
+
+func _ready():
+	_action1 = $command.parse_command(\"236,a<:5\")
+
+var _old_direction = 5
+
+func _process(delta):
+	var command = $command
+	command.tick()
+	
+	var joystick = $joystick
+	var dir = command.get_direction()
+	if dir != _old_direction:
+		if _old_direction != 5:
+			joystick.get_node(str(_old_direction)).modulate = Color.WHITE
+		_old_direction = dir
+		if dir != 5:
+			joystick.get_node(str(dir)).modulate = Color.RED
+	
+	if command.is_press(\"a\"):
+		$joystick/a.modulate = Color.RED
+	else:
+		$joystick/a.modulate = Color.WHITE
+
+	var result = command.command_match(_action1)
+	if result != null:
+		result.use()
+		_display_checkmark($action1/check)
+
+func _display_checkmark(checkmark: Sprite2D):
+	checkmark.visible = true
+	await get_tree().create_timer(3).timeout
+	checkmark.visible = false
+	
+"
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 7 )
+action_name = "a"
+keycode = 74
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 7 )
+action_name = "2"
+keycode = 83
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 7 )
+action_name = "4"
+keycode = 65
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 7 )
+action_name = "6"
+keycode = 68
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 7 )
+action_name = "8"
+keycode = 87
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+direction2 = SubResource( 4 )
+direction4 = SubResource( 5 )
+direction6 = SubResource( 6 )
+direction8 = SubResource( 7 )
+buttons = [ SubResource( 3 ) ]
+
+[node name="Node2D" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="command" type="Node" parent="."]
+script = ExtResource( 1 )
+resource = SubResource( 2 )
+
+[node name="joystick" type="Node2D" parent="."]
+
+[node name="1" type="Sprite2D" parent="joystick"]
+position = Vector2( 180, 177 )
+rotation = 2.35619
+scale = Vector2( 0.477778, 0.477778 )
+texture = ExtResource( 3 )
+
+[node name="2" type="Sprite2D" parent="joystick"]
+position = Vector2( 211, 186 )
+rotation = 1.5708
+scale = Vector2( 0.477778, 0.477778 )
+texture = ExtResource( 3 )
+
+[node name="3" type="Sprite2D" parent="joystick"]
+position = Vector2( 242, 177 )
+rotation = 0.785398
+scale = Vector2( 0.477778, 0.477778 )
+texture = ExtResource( 3 )
+
+[node name="4" type="Sprite2D" parent="joystick"]
+position = Vector2( 169, 147 )
+rotation = -3.14159
+scale = Vector2( 0.477778, 0.477778 )
+texture = ExtResource( 3 )
+
+[node name="6" type="Sprite2D" parent="joystick"]
+position = Vector2( 252, 148 )
+scale = Vector2( 0.477778, 0.477778 )
+texture = ExtResource( 3 )
+
+[node name="7" type="Sprite2D" parent="joystick"]
+position = Vector2( 180, 115 )
+rotation = -2.35619
+scale = Vector2( 0.477778, 0.477778 )
+texture = ExtResource( 3 )
+
+[node name="8" type="Sprite2D" parent="joystick"]
+position = Vector2( 213, 104 )
+rotation = -1.5708
+scale = Vector2( 0.477778, 0.477778 )
+texture = ExtResource( 3 )
+
+[node name="9" type="Sprite2D" parent="joystick"]
+position = Vector2( 245, 115 )
+rotation = -0.785398
+scale = Vector2( 0.477778, 0.477778 )
+texture = ExtResource( 3 )
+
+[node name="a" type="Sprite2D" parent="joystick"]
+position = Vector2( 368, 145 )
+scale = Vector2( 0.655556, 0.655556 )
+texture = ExtResource( 4 )
+
+[node name="action1" type="Node2D" parent="."]
+
+[node name="down" type="Sprite2D" parent="action1"]
+position = Vector2( 218, 309 )
+rotation = 1.5708
+scale = Vector2( 0.477778, 0.477778 )
+texture = ExtResource( 3 )
+
+[node name="rightdown" type="Sprite2D" parent="action1"]
+position = Vector2( 261, 307 )
+rotation = 0.785398
+scale = Vector2( 0.477778, 0.477778 )
+texture = ExtResource( 3 )
+
+[node name="right" type="Sprite2D" parent="action1"]
+position = Vector2( 311, 311 )
+scale = Vector2( 0.477778, 0.477778 )
+texture = ExtResource( 3 )
+
+[node name="a" type="Sprite2D" parent="action1"]
+position = Vector2( 393, 308 )
+scale = Vector2( 0.655556, 0.655556 )
+texture = ExtResource( 4 )
+
+[node name="check" type="Sprite2D" parent="action1"]
+visible = false
+position = Vector2( 501, 312 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )

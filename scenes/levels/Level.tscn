@@ -1,60 +1,96 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=3 uid="uid://dtd4qxpeu0kwg"]
 
-[ext_resource path="res://scenes/characters/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/images/Foreground/Lamp.png" type="Texture" id=2]
-[ext_resource path="res://assets/images/Backgrounds/Pizzaria.png" type="Texture" id=3]
-[ext_resource path="res://assets/images/car.png" type="Texture" id=4]
-[ext_resource path="res://assets/images/Backgrounds/Test.png" type="Texture" id=5]
+[ext_resource type="PackedScene" uid="uid://d362wb1gfxa5d" path="res://scenes/characters/Player.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://c7kg0we6ma5j4" path="res://assets/images/backgrounds/stage 1/Bakery.png" id="2_t2243"]
+[ext_resource type="Texture2D" uid="uid://dsod7bbsn54c0" path="res://assets/images/backgrounds/stage 1/Pizzaria.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c8cu11jm3jbs7" path="res://assets/images/backgrounds/stage 1/glow/PizzariaGlow.png" id="4_vg36s"]
+[ext_resource type="Texture2D" uid="uid://lok7fn58ni7r" path="res://assets/images/backgrounds/Test.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dqru3oy3akx6w" path="res://assets/images/backgrounds/stage 1/glow/BakeryGlow.png" id="5_8mypx"]
+[ext_resource type="Texture2D" uid="uid://8e61rld7rysm" path="res://assets/images/backgrounds/stage 1/Lamp.png" id="6_r0bey"]
+[ext_resource type="PackedScene" uid="uid://bcehwuwi7ndl8" path="res://scenes/menus/pausemenu.tscn" id="7_rmfcu"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 389.5, 51.5 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(766.875, 51.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42cpk"]
+size = Vector2(20, 439)
+
+[sub_resource type="Environment" id="2"]
+background_mode = 3
+glow_enabled = true
+glow_levels/5 = 0.0
+glow_levels/6 = 1.0
+glow_levels/7 = 1.0
+glow_intensity = 3.72
+glow_strength = 1.02
+glow_blend_mode = 0
+glow_hdr_threshold = 1.84
+glow_hdr_scale = 1.53
+glow_hdr_luminance_cap = 35.42
+glow_map_strength = 0.69
 
 [node name="Level" type="Node2D"]
-
-[node name="YSort" type="YSort" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="YSort"]
-position = Vector2( 486, 134 )
-
-[node name="Icon" type="Sprite" parent="YSort/StaticBody2D"]
-texture = ExtResource( 4 )
-
-[node name="Player" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 156, 116 )
+y_sort_enabled = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-follow_viewport_enable = true
+follow_viewport_enabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ParallaxBackground"]
 collision_layer = 2
 
-[node name="Test" type="Sprite" parent="ParallaxBackground/StaticBody2D"]
-position = Vector2( 1, -148 )
-texture = ExtResource( 5 )
+[node name="Test" type="Sprite2D" parent="ParallaxBackground/StaticBody2D"]
+position = Vector2(0, -119)
+texture = ExtResource("5")
 centered = false
-__meta__ = {
-"_edit_lock_": true
-}
+
+[node name="Bakery" type="Sprite2D" parent="ParallaxBackground/StaticBody2D"]
+position = Vector2(529, 49)
+texture = ExtResource("2_t2243")
+
+[node name="Pizzeria" type="Sprite2D" parent="ParallaxBackground/StaticBody2D"]
+position = Vector2(305, 49)
+texture = ExtResource("3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/StaticBody2D"]
-position = Vector2( 386, 40 )
-shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(383.563, 95)
+shape = SubResource("1")
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/StaticBody2D"]
-position = Vector2( 263, 56 )
-texture = ExtResource( 3 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ParallaxBackground/StaticBody2D"]
+position = Vector2(0, 100)
+shape = SubResource("RectangleShape2D_42cpk")
+
+[node name="GlowingSprites" type="Node2D" parent="ParallaxBackground/StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/StaticBody2D/GlowingSprites"]
+modulate = Color(2.78431, 1.41961, 2.87451, 0.988235)
+position = Vector2(305, 49)
+texture = ExtResource("4_vg36s")
+
+[node name="BakeryGlow" type="Sprite2D" parent="ParallaxBackground/StaticBody2D/GlowingSprites"]
+modulate = Color(5.21, 2.91, 5.78, 0.72)
+position = Vector2(540, 76)
+texture = ExtResource("5_8mypx")
 
 [node name="ParallaxForeground" type="ParallaxBackground" parent="."]
 layer = 1
-follow_viewport_enable = true
+follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxForeground"]
-motion_scale = Vector2( 0.5, 1 )
+motion_scale = Vector2(0.5, 1)
 
-[node name="Lamp" type="Sprite" parent="ParallaxForeground/ParallaxLayer"]
-position = Vector2( 260, 125 )
+[node name="Lamp" type="Sprite2D" parent="ParallaxForeground/ParallaxLayer"]
 z_index = 5
-texture = ExtResource( 2 )
+texture_filter = 1
+position = Vector2(260, 125)
+texture = ExtResource("6_r0bey")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pausemenu" parent="CanvasLayer" instance=ExtResource("7_rmfcu")]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("1")]
+position = Vector2(156, 116)
