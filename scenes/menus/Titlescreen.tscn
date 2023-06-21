@@ -1,9 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://6ls7hiilayh0"]
+[gd_scene load_steps=10 format=3 uid="uid://6ls7hiilayh0"]
 
-[ext_resource type="FontFile" uid="uid://bi8w5lkscix65" path="res://assets/fonts/font.font" id="1"]
 [ext_resource type="Script" path="res://assets/scripts/menus/Titlescreen.gd" id="2"]
-[ext_resource type="Shader" path="res://assets/shaders/transition.gdshader" id="3"]
-[ext_resource type="Texture2D" uid="uid://bura83nswbe6y" path="res://assets/images/transition masks/circle.png" id="4"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "any-button"
@@ -37,10 +34,20 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="ShaderMaterial" id="3"]
-shader = ExtResource("3")
-shader_parameter/cutoff = 0.329
-shader_parameter/mask = ExtResource("4")
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w2ejm"]
+blend_mode = 3
+
+[sub_resource type="Gradient" id="Gradient_a1pcj"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.780645)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0omg6"]
+gradient = SubResource("Gradient_a1pcj")
+width = 384
+height = 384
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Animation" id="4"]
 resource_name = "transition"
@@ -70,13 +77,13 @@ script = ExtResource("2")
 offset_right = 384.0
 offset_bottom = 216.0
 color = Color(0.121569, 0.0117647, 0.290196, 1)
+metadata/_edit_lock_ = true
 
 [node name="press-start" type="Label" parent="."]
 offset_left = 122.0
 offset_top = 154.0
 offset_right = 247.0
 offset_bottom = 168.0
-theme_override_fonts/font = ExtResource("1")
 text = "- press any button -"
 
 [node name="button-flashing" type="AnimationPlayer" parent="press-start"]
@@ -100,14 +107,24 @@ offset_right = 247.0
 offset_bottom = 87.0
 text = "[insert game name]"
 
-[node name="transition" type="ColorRect" parent="."]
-material = SubResource("3")
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="transition" type="TextureRect" parent="Control"]
+material = SubResource("CanvasItemMaterial_w2ejm")
+layout_mode = 0
+offset_top = -84.0
 offset_right = 384.0
-offset_bottom = 216.0
-color = Color(0, 0, 0, 1)
+offset_bottom = 300.0
+pivot_offset = Vector2(32, 32)
+texture = SubResource("GradientTexture2D_0omg6")
+stretch_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="animation" type="AnimationPlayer" parent="transition"]
+[node name="animation" type="AnimationPlayer" parent="Control/transition"]
 libraries = {
 "": SubResource("AnimationLibrary_vwa5b")
 }

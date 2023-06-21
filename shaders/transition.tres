@@ -1,0 +1,9 @@
+[gd_resource type="Shader" format=3 uid="uid://cnwfqbcf7s0cf"]
+
+[resource]
+code = "shader_type canvas_item;
+
+void fragment() {
+	// Place fragment code here.
+}
+"

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var jump = -260
+@export var jump = -130
 var gravity = 10
 var grounded
 const FLOOR = Vector2(0, -1)
@@ -14,12 +14,14 @@ func _physics_process(_delta):
 	if position.y >= -2:
 		grounded = true
 		velocity.y = 0
+		get_parent().jumping = false
 	else:
 		grounded = false
 		velocity.y += gravity
 	if Input.is_action_just_pressed("ui_accept"):
 		if grounded == true:
 			velocity.y = jump
+			get_parent().jumping = true
 			
 	set_velocity(velocity)
 	set_up_direction(FLOOR)
