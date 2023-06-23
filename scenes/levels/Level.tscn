@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtd4qxpeu0kwg"]
+[gd_scene load_steps=13 format=3 uid="uid://dtd4qxpeu0kwg"]
 
 [ext_resource type="PackedScene" uid="uid://d362wb1gfxa5d" path="res://scenes/characters/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://c7kg0we6ma5j4" path="res://assets/images/backgrounds/stage 1/Bakery.png" id="2_t2243"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dqru3oy3akx6w" path="res://assets/images/backgrounds/stage 1/glow/BakeryGlow.png" id="5_8mypx"]
 [ext_resource type="Texture2D" uid="uid://8e61rld7rysm" path="res://assets/images/backgrounds/stage 1/Lamp.png" id="6_r0bey"]
 [ext_resource type="PackedScene" uid="uid://bcehwuwi7ndl8" path="res://scenes/menus/pausemenu.tscn" id="7_rmfcu"]
+[ext_resource type="PackedScene" uid="uid://b5mjnaf1m0g55" path="res://scenes/enemies/testdummy.tscn" id="9_to4pl"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(766.875, 51.25)
@@ -94,3 +95,6 @@ visible = false
 
 [node name="Player" parent="." instance=ExtResource("1")]
 position = Vector2(156, 116)
+
+[node name="testdummy" parent="." instance=ExtResource("9_to4pl")]
+position = Vector2(284, 125)

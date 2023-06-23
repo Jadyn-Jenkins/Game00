@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://d362wb1gfxa5d"]
+[gd_scene load_steps=68 format=3 uid="uid://d362wb1gfxa5d"]
 
 [ext_resource type="Script" path="res://assets/scripts/player/player.gd" id="1"]
 [ext_resource type="Script" path="res://assets/scripts/player/z-jump.gd" id="2"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="2"]
 size = Vector2(18, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm0ir"]
+size = Vector2(23, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4oamo"]
 atlas = ExtResource("3_bncfn")
@@ -415,8 +418,255 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Animation" id="Animation_2ijli"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [36]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hurtbox/damage:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hurtbox/damage:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(44, 11)]
+}
+
+[sub_resource type="Animation" id="Animation_rjapo"]
+resource_name = "idle"
+length = 3.50001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 3.1, 3.2, 3.3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hurtbox/damage:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mfami"]
+resource_name = "jump"
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hurtbox/damage:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_l1t53"]
+resource_name = "jump_kick"
+length = 0.50001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hurtbox/damage:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(44, 11)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hurtbox/damage:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_pf7om"]
+resource_name = "punch"
+length = 0.160004
+step = 0.04
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [30, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hurtbox/damage:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hurtbox/damage:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(38.5, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_dhoxl"]
+resource_name = "run"
+length = 0.500013
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [35, 36, 37, 38]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hurtbox/damage:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_iu0ei"]
+resource_name = "walk"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [35, 36, 37, 38]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hurtbox/damage:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_57k2f"]
+_data = {
+"RESET": SubResource("Animation_2ijli"),
+"idle": SubResource("Animation_rjapo"),
+"jump": SubResource("Animation_mfami"),
+"jump_kick": SubResource("Animation_l1t53"),
+"punch": SubResource("Animation_pf7om"),
+"run": SubResource("Animation_dhoxl"),
+"walk": SubResource("Animation_iu0ei")
+}
+
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(22, 9)
+size = Vector2(26, 9)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(31, 138)
@@ -444,14 +694,40 @@ collision_mask = 0
 position = Vector2(0, 14.5)
 shape = SubResource("2")
 
+[node name="Hurtbox" type="Area2D" parent="Z-jump"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="damage" type="CollisionShape2D" parent="Z-jump/Hurtbox"]
+position = Vector2(44, 11)
+shape = SubResource("RectangleShape2D_sm0ir")
+disabled = true
+
 [node name="Animation1" type="AnimatedSprite2D" parent="Z-jump"]
+visible = false
 position = Vector2(1, 9)
 sprite_frames = SubResource("SpriteFrames_uuyjo")
 animation = &"run"
 metadata/_edit_lock_ = true
 
+[node name="Sprite" type="Sprite2D" parent="Z-jump"]
+position = Vector2(1, 9)
+texture = ExtResource("3_bncfn")
+hframes = 7
+vframes = 7
+frame = 36
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Z-jump/Sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_57k2f")
+}
+
+[node name="Timer" type="Timer" parent="Z-jump"]
+wait_time = 0.5
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 42.5)
+position = Vector2(1, 42.5)
 shape = SubResource("1")
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -471,4 +747,6 @@ limit_bottom = 216
 [node name="DoubleTapCounter" type="Timer" parent="."]
 wait_time = 0.4
 
+[connection signal="animation_finished" from="Z-jump/Sprite/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Z-jump/Timer" to="Z-jump" method="_on_timer_timeout"]
 [connection signal="timeout" from="DoubleTapCounter" to="." method="_on_DoubleTapCounter_timeout"]
