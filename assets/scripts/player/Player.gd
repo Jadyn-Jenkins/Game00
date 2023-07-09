@@ -31,6 +31,7 @@ func _physics_process(_delta):
 			animation.play("punch")
 			velocity.x *= 0
 			velocity.y *= 0
+			$AudioStreamPlayer.play()
 			pass
 	#movement
 	if attacking == false:
@@ -108,3 +109,21 @@ func _on_animation_player_animation_finished(anim_name):
 		attacking = false
 	if anim_name == "jump_kick":
 		pass
+
+
+func _on_range_body_entered(body):
+	if body.name == "testdummy":
+		if body.hitable != true:
+			body.hitable = true
+	if body.name == "mailbox":
+		if body.hitable != true:
+			body.hitable = true
+
+
+func _on_range_body_exited(body):
+	if body.name == "testdummy":
+		if body.hitable != false:
+			body.hitable = false
+	if body.name == "mailbox":
+		if body.hitable != false:
+			body.hitable = false

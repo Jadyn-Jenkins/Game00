@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://758h57ikuy3n"
+path="res://.godot/imported/explosion.wav-2246eecf5f087fd21527358175d20d6f.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds effects/Streets of Rage sfx/explosion.wav"
+dest_files=["res://.godot/imported/explosion.wav-2246eecf5f087fd21527358175d20d6f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

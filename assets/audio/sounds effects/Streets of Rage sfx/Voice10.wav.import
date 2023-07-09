@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://li2kogxe5tdf"
+path="res://.godot/imported/Voice10.wav-e2cf11f8f71a2d25fa5be8fd5f8bb0b9.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds effects/Streets of Rage sfx/Voice10.wav"
+dest_files=["res://.godot/imported/Voice10.wav-e2cf11f8f71a2d25fa5be8fd5f8bb0b9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

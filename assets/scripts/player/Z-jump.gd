@@ -24,6 +24,7 @@ func _physics_process(_delta):
 		if grounded == true:
 			get_parent().jumping = true
 			velocity.y = jump
+			
 			get_parent().LTapCount = 0
 			get_parent().RTapCount = 0
 

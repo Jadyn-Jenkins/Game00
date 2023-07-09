@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cioon5fjgjt8d"
+path="res://.godot/imported/SE 33.wav-6b500bf3dfb35f4019eed99c7468d573.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds effects/Streets of Rage sfx/SE 33.wav"
+dest_files=["res://.godot/imported/SE 33.wav-6b500bf3dfb35f4019eed99c7468d573.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

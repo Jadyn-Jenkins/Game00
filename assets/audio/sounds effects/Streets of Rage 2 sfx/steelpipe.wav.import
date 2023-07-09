@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dx0vs3qrp7dnj"
+path="res://.godot/imported/steelpipe.wav-1019cfc42c346b48ac1baea42b3f5159.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds effects/Streets of Rage 2 sfx/steelpipe.wav"
+dest_files=["res://.godot/imported/steelpipe.wav-1019cfc42c346b48ac1baea42b3f5159.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

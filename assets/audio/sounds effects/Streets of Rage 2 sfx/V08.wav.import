@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://biw3k86bxwxv2"
+path="res://.godot/imported/V08.wav-105a7e42599844c70ed58bc8cb27a85a.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds effects/Streets of Rage 2 sfx/V08.wav"
+dest_files=["res://.godot/imported/V08.wav-105a7e42599844c70ed58bc8cb27a85a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

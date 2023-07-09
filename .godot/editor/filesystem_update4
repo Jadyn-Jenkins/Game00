@@ -1,2 +1,5 @@
 res://default_env.tres
+res://scenes/levels/Level.tscn
+res://scenes/menus/pausemenu.tscn
+res://scenes/menus/mainmenu.tscn
 res://scenes/characters/Player.tscn

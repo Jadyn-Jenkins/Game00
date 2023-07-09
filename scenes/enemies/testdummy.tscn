@@ -1,23 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5mjnaf1m0g55"]
+[gd_scene load_steps=5 format=3 uid="uid://b5mjnaf1m0g55"]
 
 [ext_resource type="Script" path="res://assets/scripts/enemies/testdummy.gd" id="1_xvai8"]
+[ext_resource type="AudioStream" uid="uid://e0d8d4g16bca" path="res://assets/audio/sounds effects/Streets of Rage 2 sfx/punch2.wav" id="2_ssb3v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_18gae"]
-size = Vector2(27, 9)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mpi6s"]
+radius = 8.0
+height = 31.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrb4"]
 size = Vector2(21, 54)
 
 [node name="testdummy" type="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(45, 36)
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_xvai8")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 34.5)
-shape = SubResource("RectangleShape2D_18gae")
+position = Vector2(0, 31)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_mpi6s")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -11.0
@@ -25,14 +28,18 @@ offset_top = -20.0
 offset_right = 12.0
 offset_bottom = 36.0
 color = Color(0.901961, 0.290196, 0.478431, 1)
+metadata/_edit_lock_ = true
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 8
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0.5, 8)
 shape = SubResource("RectangleShape2D_ohrb4")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = -9.0
@@ -40,16 +47,6 @@ offset_top = -38.0
 offset_right = 10.0
 offset_bottom = -12.0
 text = "00"
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(5, 37)
-scale = Vector2(1, 8)
-target_position = Vector2(-56, 0)
-
-[node name="RayCast2D2" type="RayCast2D" parent="."]
-position = Vector2(5, 37)
-scale = Vector2(1, 8)
-target_position = Vector2(52, 0)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 16.0
@@ -59,6 +56,10 @@ debug_enabled = true
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ssb3v")
+panning_strength = 0.42
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
