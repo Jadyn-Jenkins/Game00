@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5mjnaf1m0g55"]
+[gd_scene load_steps=6 format=3 uid="uid://b5mjnaf1m0g55"]
 
 [ext_resource type="Script" path="res://assets/scripts/enemies/testdummy.gd" id="1_xvai8"]
 [ext_resource type="AudioStream" uid="uid://e0d8d4g16bca" path="res://assets/audio/sounds effects/Streets of Rage 2 sfx/punch2.wav" id="2_ssb3v"]
@@ -10,7 +10,10 @@ height = 31.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohrb4"]
 size = Vector2(21, 54)
 
-[node name="testdummy" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arvwo"]
+size = Vector2(300, 75)
+
+[node name="testdummy" type="CharacterBody2D" groups=["Enemy"]]
 y_sort_enabled = true
 position = Vector2(45, 36)
 collision_mask = 2
@@ -36,7 +39,7 @@ collision_mask = 8
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" groups=["Enemy"]]
 position = Vector2(0.5, 8)
 shape = SubResource("RectangleShape2D_ohrb4")
 metadata/_edit_lock_ = true
@@ -61,5 +64,12 @@ autostart = true
 stream = ExtResource("2_ssb3v")
 panning_strength = 0.42
 
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("RectangleShape2D_arvwo")
+
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Detection" to="." method="_on_detection_area_area_entered"]
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]

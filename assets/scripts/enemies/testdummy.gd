@@ -1,7 +1,7 @@
 extends CharacterBody2D
 var health = 50
 var hitable = false
-@export var following = true
+@export var following = false
 @export var speed = 30
 var yspeed = float(speed/2)
 @export var target: Node2D
@@ -30,7 +30,10 @@ func _on_hitbox_area_entered(area):
 			$AudioStreamPlayer2D.play()
 			health -= 5
 			Input.start_joy_vibration(0, 0.2, 0.2, 0.2)
-	
 
 func _on_timer_timeout():
 	retarget()
+
+func _on_detection_body_entered(body):
+	if body.is_in_group("Player"):
+		following = true
