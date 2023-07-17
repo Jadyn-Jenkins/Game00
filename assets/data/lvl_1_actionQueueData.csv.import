@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bi7ykl68stiuw"
+
+[deps]
+
+files=["res://assets/data/lvl_1_actionQueueData.Type.translation"]
+
+source_file="res://assets/data/lvl_1_actionQueueData.csv"
+dest_files=["res://assets/data/lvl_1_actionQueueData.Type.translation"]
+
+[params]
+
+compress=true
+delimiter=0

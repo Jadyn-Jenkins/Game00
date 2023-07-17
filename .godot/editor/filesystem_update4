@@ -1,7 +1,7 @@
-res://assets/scripts/enemies/testdummy.gd
 res://default_env.tres
-res://scenes/enemies/testdummy.tscn
 res://scenes/levels/Level.tscn
 res://scenes/menus/pausemenu.tscn
 res://scenes/menus/mainmenu.tscn
 res://scenes/characters/Player.tscn
+res://scenes/enemies/testdummy.tscn
+res://scenes/levels/Level.gd
