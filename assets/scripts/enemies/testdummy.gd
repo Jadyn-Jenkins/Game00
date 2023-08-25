@@ -3,7 +3,7 @@ var health = 50
 var hitable = false
 @export var following = false
 @export var speed = 30
-var yspeed = float(speed/2)
+var yspeed = float(speed/2.0)
 @export var target: Node2D
 @onready var agent := $NavigationAgent2D as NavigationAgent2D
 var moving = false

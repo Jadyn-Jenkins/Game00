@@ -1,6 +1,37 @@
-extends CharacterBody2D
+class_name Player extends Character
+
+func _ready():
+	var player1 = Player.new()
+
+func handleInput(player : Player):
+	#Make button presses here
+	match (player.input):
+		"right_player1":
+			pass
+		"left_player1":
+			pass
+		"up_player1":
+			pass
+		"down_player1":
+			pass
+		"punch_player1":
+			pass
+		"special_player1":
+			pass
+		"jump_player1":
+			pass
+func catchInput():
+	
+func updateScore(score : int):
+	#Update score logic goes here
+	pass
+		
+func specialAttack():
+	#Special Attack goes here
+	pass
+
 @onready var animation = $"Z-jump/Sprite/AnimationPlayer"
-@onready var sprite = $"Z-jump/Sprite"
+var sprite = "Z-jump/Sprite"
 var running = false
 var LTapCount = 0
 var RTapCount = 0
@@ -12,11 +43,15 @@ var attacking = false
 var jumpkick = false
 var direction = 1
 @onready var zpos = $"Z-jump".position.y
+
 func _physics_process(_delta):
+	
 	if jumping == true:
 		if attacking == false:
 			animation.play("jump")
+	
 	doubletap()
+	
 	#attacking
 	if Input.is_action_just_pressed("punch_player1"):
 		RTapCount = 0
@@ -33,6 +68,7 @@ func _physics_process(_delta):
 			velocity.y *= 0
 			$AudioStreamPlayer.play()
 			pass
+	
 	#movement
 	if attacking == false:
 			var movedirx = Input.get_axis("left_player1", "right_player1")
@@ -47,6 +83,7 @@ func _physics_process(_delta):
 	else:
 		if attacking == false:
 			if jumpkick == false:
+				
 				#flipping the sprite and its collisions
 				if velocity.x > 0:
 					scale.y = 1
@@ -88,10 +125,12 @@ func _physics_process(_delta):
 	#phyics stuff
 	set_velocity(velocity)
 	move_and_slide()
+
 #ending jumpkick so the isn't jumpkicking forever
 func end_jumpkick():
 	attacking = false
 	jumpkick = false
+
 #douletap system
 func doubletap():
 	if running == true:
@@ -99,17 +138,18 @@ func doubletap():
 		xspeed = 110
 	else:
 		xspeed = 60
+
 #timer for doubletap
 func _on_DoubleTapCounter_timeout():
 	RTapCount = 0
 	LTapCount = 0
+
 # when a animation is finished, [x] happens
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "punch":
 		attacking = false
 	if anim_name == "jump_kick":
 		pass
-
 
 func _on_range_body_entered(body):
 	if body.name == "testdummy":
@@ -119,7 +159,6 @@ func _on_range_body_entered(body):
 		if body.hitable != true:
 			body.hitable = true
 
-
 func _on_range_body_exited(body):
 	if body.name == "testdummy":
 		if body.hitable != false:
@@ -127,3 +166,7 @@ func _on_range_body_exited(body):
 	if body.name == "mailbox":
 		if body.hitable != false:
 			body.hitable = false
+
+var input : Input
+var score : int
+

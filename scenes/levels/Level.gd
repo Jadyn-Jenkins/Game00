@@ -1,7 +1,7 @@
-extends Node2D
+class_name Level extends Node2D
 
 #Global Class Init
-class_name Level
+
 #Global variables
 var lvl_1 = LevelData.new()
 
@@ -23,6 +23,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
 
 func _on_event_trigger_body_entered(body):
 		if body.is_in_group("Player"):

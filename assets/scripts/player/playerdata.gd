@@ -1,5 +1,5 @@
-extends Resource
-class_name PlayerData
+class_name PlayerData extends Resource
+
 
 var high
 var time = Time.get_datetime_dict_from_system();
