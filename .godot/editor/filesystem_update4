@@ -1,7 +1,8 @@
 res://default_env.tres
-res://scenes/levels/level.tscn
-res://assets/scripts/player/player.gd
 res://scenes/menus/pausemenu.tscn
 res://scenes/menus/mainmenu.tscn
-res://scenes/characters/player.tscn
 res://scenes/enemies/testdummy.tscn
+res://scenes/levels/level.tscn
+res://scenes/characters/player.tscn
+res://assets/scripts/player/z-jump.gd
+res://assets/scripts/player/player.gd

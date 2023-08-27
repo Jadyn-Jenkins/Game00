@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bcehwuwi7ndl8" path="res://scenes/menus/pausemenu.tscn" id="8_e2ryt"]
 [ext_resource type="PackedScene" uid="uid://5i1gf0q30jms" path="res://scenes/misc/mailbox.tscn" id="9_evpul"]
 [ext_resource type="PackedScene" uid="uid://dx7r5dcivcr6i" path="res://scenes/misc/car.tscn" id="10_8smqd"]
-[ext_resource type="PackedScene" uid="uid://d362wb1gfxa5d" path="res://scenes/characters/player.tscn" id="11_ogjwb"]
+[ext_resource type="PackedScene" uid="uid://d362wb1gfxa5d" path="res://scenes/characters/Player.tscn" id="11_ogjwb"]
 [ext_resource type="PackedScene" uid="uid://b5mjnaf1m0g55" path="res://scenes/enemies/testdummy.tscn" id="12_yp4fx"]
 
 [sub_resource type="RectangleShape2D" id="1"]

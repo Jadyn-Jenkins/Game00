@@ -38,7 +38,7 @@ func _physics_process(_delta):
 	handleStates()
 	doubletap()
 	catchInput()
-	
+	print(state)
 	#phyics stuff
 	set_velocity(velocity)
 	move_and_slide()

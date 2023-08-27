@@ -1,6 +1,7 @@
-[gd_scene load_steps=69 format=3 uid="uid://d362wb1gfxa5d"]
+[gd_scene load_steps=70 format=3 uid="uid://d362wb1gfxa5d"]
 
 [ext_resource type="Script" path="res://assets/scripts/player/player.gd" id="1_vvtlm"]
+[ext_resource type="Script" path="res://assets/scripts/player/z-jump.gd" id="2_erbow"]
 [ext_resource type="Texture2D" uid="uid://s5hqn62nf4xt" path="res://assets/images/player/adamplayer.png" id="3_bncfn"]
 [ext_resource type="AudioStream" uid="uid://b5a45dm6604rp" path="res://assets/audio/sounds effects/Streets of Rage 2 sfx/punch1.wav" id="4_pfiqd"]
 
@@ -678,6 +679,7 @@ script = ExtResource("1_vvtlm")
 
 [node name="z-jump" type="CharacterBody2D" parent="."]
 position = Vector2(0, -2)
+script = ExtResource("2_erbow")
 
 [node name="ColorRect" type="ColorRect" parent="z-jump"]
 visible = false
