@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="beat-em-up-sample"
-run/main_scene="res://scenes/levels/Level.tscn"
+run/main_scene="res://scenes/levels/level.tscn"
 config/features=PackedStringArray("4.1")
 config/icon="res://icon.png"
+
+[autoload]
+
+characterObj="*res://assets/scripts/character.gd"
+levelObj="*res://assets/scripts/level.gd"
+animationDataObj="*res://assets/scripts/animationData.gd"
+playerObj="*res://assets/scripts/player/player.cs"
 
 [debug]
 

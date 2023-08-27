@@ -1,6 +1,6 @@
 class_name AnimationData extends Node
 
-var animation : String
+@onready var animation : AnimationPlayer = AnimationPlayer.new()
 var sprite : String
 var zpos : String
 var direction = 1

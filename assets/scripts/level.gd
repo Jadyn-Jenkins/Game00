@@ -4,7 +4,7 @@ class_name Level extends Node2D
 
 #Global variables
 var lvl_1 = LevelData.new()
-
+var player1 = Player.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Simulated data retrieval for lvl 1

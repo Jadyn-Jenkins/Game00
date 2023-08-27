@@ -1,6 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://6ls7hiilayh0"]
 
-[ext_resource type="Script" path="res://assets/scripts/menus/Titlescreen.gd" id="2"]
+[ext_resource type="Script" path="res://assets/scripts/menus/titlescreen.gd" id="2"]
+
 
 [sub_resource type="Animation" id="1"]
 resource_name = "any-button"

@@ -2,47 +2,49 @@ class_name Character extends CharacterBody2D
 
 	# State should change fliudly with the players's inputs. States is the library of possible states
 	# any character might be in	
-	# Still = 0
+	# Idle = 0
 	# Walking = 1
 	# Running = 2
 	# Jumping = 3
-	# jumpAttack = 4
-	# Attacking = 5
-	# Hurt = 6
-	# Death = 7
-	# PowerUp = 8	
-	# 
-var states = ["idle", "walking", "running", "jumping", "jumpAttacking","attacking", "hurt", "death", "powerUp"]
-
-var state : String = states[0]
-var health : int
-var animationData : AnimationData
+	# jumpAttacking = 4
+	# Hurt = 5
+	# Death = 6
+	# Attacking = 7
+var states = ["idle", "walking", "running", "jumping", "jumpAttacking", "hurt", "death", "attacking"]
+@export var state : String = states[0]
+@export var grounded : bool = true
+var health : int = 100
+var animationData : AnimationData = AnimationData.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	idle()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 	
-func move(input):
+func idle():
+	state = states[0]
+	
+func walk():
 	state = states[1]
+	
+func run():
+	state = states[2]
 
-func attack(input):
-	if state == "jumping" & input == "attack":
-		jumpAttack()
-	else :
-		state = states[5]
-
-func jump(input):
+func jump():
 	state = states[3]
 
 func jumpAttack():
 	state = states[4]
 
 func takeDamage(damage):
-	state = states[6]
+	state = states[5]
 
 func death():
+	state = states[6]
+
+func attack():
 	state = states[7]
